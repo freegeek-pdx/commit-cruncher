@@ -1,0 +1,11 @@
+This is a simple test file for commit-cruncher.
+
+now, let's sort some commits:
+blah >> asdf will do blahAA [DONE]
+> ryan will blah
+>> ryan will do X
+>>> tony will blah
+>>>> ryan will do another blah
+>> tony will do Y
+> tony wlil do blah
+> ryan will do Z
