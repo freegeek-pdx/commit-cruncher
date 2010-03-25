@@ -1,3 +1,14 @@
+commit-cruncher (0.02) UNRELEASED; urgency=low
+
+  * rather than Commit(s) in the headers, do Commit or Commits based on
+    the number of commits
+  * clean up error messages to not include perl stuff
+  * check that the user supplied 1 arguement
+  * clean up the parsing of old generated lines to make sure that only
+    Commit headers are removed
+
+ -- Ryan Niebur <ryan@debian.org>  Thu, 25 Mar 2010 13:26:34 -0700
+
 commit-cruncher (0.01) freegeek-test; urgency=low
 
   * Initial Release.

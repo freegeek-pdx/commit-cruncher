@@ -16,13 +16,18 @@ sub new {
     return $self
 }
 
+sub my_die {
+  print shift() . "\n";
+  exit(1);
+}
+
 sub parse {
     my $self = shift;
     if($self->{parsed} == 1) {
       return;
     }
     my $F;
-    open $F, "<", $self->{file} or die("Failed opening " . $self->{file} . ": " . $!);
+    open $F, "<", $self->{file} or my_die("Failed opening " . $self->{file} . ": " . $!);
     my @lines = <$F>;
     my @input_lines = ();
     my @matching = ();
@@ -30,12 +35,12 @@ sub parse {
     my $state = 1;
     my $magic = magic();
     foreach my $line(@lines) {
-      if($state == 1 && $line =~ /^:(.*):$/) {
+      if($state == 1 && $line =~ /^:(?:Completed|Old|New) Commit(?:\(s\)|s|):$/) {
         $state = 2; redo;
       } elsif($state == 1 && $line =~ /((?:$magic).+)$/) {
         push @matching, $1;
         $state = 3; redo;
-      } elsif($state == 2 && ($line =~ /^:.*:$/ || $line =~ /^\s*$/ || $line =~ /^($magic)+.*$/)) {
+      } elsif($state == 2 && ($line =~ /^:(?:Completed|Old|New) Commit(?:\(s\)|s|):$/ || $line =~ /^\s*$/ || $line =~ /^($magic)+.*$/)) {
         push @old_generated_lines, $line;
       } else {
         push @input_lines, $line;
@@ -83,7 +88,7 @@ sub _save {
     my $self = shift;
     my $FH = shift;
     unless($self->{parsed} == 1) {
-      die("Hasn't been parsed yet");
+      my_die("Internal error.");
     }
     my $last = "\n";
     foreach(@{$self->{input_lines}}) {
@@ -130,7 +135,11 @@ sub output_header {
   if(scalar(@commits) == 0) {
     return;
   }
-  print $FH ":$name Commit(s):\n";
+  my $s = "";
+  if(scalar(@commits) > 1) {
+    $s = "s"
+  }
+  print $FH ":$name Commit$s:\n";
   foreach my $commit(commit_sort(@commits)) {
     print $FH $commit->string . "\n";
   }

@@ -10,15 +10,15 @@ blah !! asdf will do blahAA [DONE]
 ! tony wlil do blah
 ! ryan will do Z
 
-:Completed Commit(s):
+:Completed Commit:
 !! asdf will do blahAA [DONE]
 
-:New Commit(s):
+:New Commits:
 ! ryan will blah
 ! ryan will do Z
 ! tony wlil do blah
 
-:Old Commit(s):
+:Old Commits:
 !!!! ryan will do another blah
 !!! tony will blah
 !! ryan will do X
