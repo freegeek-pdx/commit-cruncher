@@ -1,4 +1,4 @@
-commit-cruncher (0.02) UNRELEASED; urgency=low
+commit-cruncher (0.02) freegeek-test; urgency=low
 
   * rather than Commit(s) in the headers, do Commit or Commits based on
     the number of commits
@@ -7,7 +7,7 @@ commit-cruncher (0.02) UNRELEASED; urgency=low
   * clean up the parsing of old generated lines to make sure that only
     Commit headers are removed
 
- -- Ryan Niebur <ryan@debian.org>  Thu, 25 Mar 2010 13:26:34 -0700
+ -- Ryan Niebur <ryan@debian.org>  Thu, 25 Mar 2010 13:27:31 -0700
 
 commit-cruncher (0.01) freegeek-test; urgency=low
 
