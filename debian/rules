@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+CMD=$(subst override_,,$@)
+BASE=debian/$(shell dh_listpackages)
+BIN=$(BASE)/usr/bin/
+
+override_dh_auto_install:
+	$(CMD)
+	mv $(BIN)/commit-crunch.pl $(BIN)/commit-crunch

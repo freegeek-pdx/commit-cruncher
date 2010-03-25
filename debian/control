@@ -1,0 +1,12 @@
+Source: commit-cruncher
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: perl
+Maintainer: Ryan Niebur <ryan@debian.org>
+
+Package: commit-cruncher
+Architecture: all
+Depends: ${perl:Depends}, ${misc:Depends}
+Description: The Commit Crucher
+ The Commit Crucher
