@@ -1,4 +1,4 @@
-use Test::More tests => 5; # echo $(( $(ls t/inputs/ | grep -v "^\." | grep -v "~$" | wc -l) * 2 + 1 ))
+use Test::More tests => 7; # echo $(( $(ls t/inputs/ | grep -v "^\." | grep -v "~$" | wc -l) * 2 + 1 ))
 
 BEGIN { use_ok( 'Commit::Cruncher' ); }
 
