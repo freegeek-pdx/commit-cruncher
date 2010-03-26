@@ -1,3 +1,10 @@
+commit-cruncher (0.03) UNRELEASED; urgency=low
+
+  * handle correctly when the exclamation mark is used as punctuation
+    rather than to mark a commit
+
+ -- Ryan Niebur <ryan@debian.org>  Fri, 26 Mar 2010 12:17:29 -0700
+
 commit-cruncher (0.02) freegeek-test; urgency=low
 
   * rather than Commit(s) in the headers, do Commit or Commits based on

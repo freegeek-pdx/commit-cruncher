@@ -37,7 +37,7 @@ sub parse {
     foreach my $line(@lines) {
       if($state == 1 && $line =~ /^:(?:Completed|Old|New) Commit(?:\(s\)|s|):$/) {
         $state = 2; redo;
-      } elsif($state == 1 && $line =~ /((?:$magic).+)$/) {
+      } elsif($state == 1 && $line =~ /(?<!\S)((?:$magic).+)$/) {
         push @matching, $1;
         $state = 3; redo;
       } elsif($state == 2 && ($line =~ /^:(?:Completed|Old|New) Commit(?:\(s\)|s|):$/ || $line =~ /^\s*$/ || $line =~ /^($magic)+.*$/)) {
